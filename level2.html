@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCESS GRANTED - LEVEL 02</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .success-container {
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+        
+        .success-icon {
+            font-size: 80px;
+            color: #00ff00;
+            text-shadow: 0 0 30px #00ff00;
+            margin-bottom: 30px;
+            animation: pulse-icon 2s infinite;
+        }
+        
+        @keyframes pulse-icon {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        .success-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #00ff00;
+            text-shadow: 0 0 20px #00ff00;
+        }
+        
+        .success-message {
+            font-size: 18px;
+            color: #00cc00;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        
+        .stats-panel {
+            background: rgba(0, 255, 0, 0.05);
+            border: 2px solid #00ff00;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .stat-line {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        .stat-label {
+            color: #00aa00;
+        }
+        
+        .stat-value {
+            color: #00ff00;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ff00;
+        }
+        
+        .next-mission-btn {
+            margin-top: 30px;
+            padding: 18px 50px;
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+            background: transparent;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+        
+        .next-mission-btn:hover {
+            background: #00ff00;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
+            transform: scale(1.05);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ff00;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff00, #00cc00);
+            width: 0%;
+            animation: fillProgress 2s forwards;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        
+        @keyframes fillProgress {
+            to {
+                width: 50%;
+            }
+        }
+        
+        .encrypted-message {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-left: 3px solid #00ff00;
+            font-size: 14px;
+            color: #00aa00;
+            text-align: left;
+        }
+        
+        .coming-soon {
+            color: #ffaa00;
+            font-style: italic;
+            margin-top: 20px;
+            text-shadow: 0 0 10px #ffaa00;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    
+    <div class="container">
+        <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">SECURE_ACCESS_TERMINAL_v2.4.1</span>
+        </div>
+        
+        <div class="content">
+            <div class="success-container">
+                <div class="success-icon">✓</div>
+                <div class="success-title">ACCESS GRANTED</div>
+                
+                <div class="success-message">
+                    <p>> AUTHENTICATION SUCCESSFUL</p>
+                    <p>> WELCOME TO THE NETWORK, OPERATIVE</p>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                
+                <div class="stats-panel">
+                    <div class="stat-line">
+                        <span class="stat-label">STATUS:</span>
+                        <span class="stat-value">AUTHORIZED</span>
+                    </div>
+                    <div class="stat-line">
+                        <span class="stat-label">CLEARANCE LEVEL:</span>
+                        <span class="stat-value">LEVEL 01 COMPLETE</span>
+                    </div>
+                    <div class="stat-line">
+                        <span class="stat-label">MISSIONS COMPLETED:</span>
+                        <span class="stat-value">1 / 2</span>
+                    </div>
+                    <div class="stat-line">
+                        <span class="stat-label">PROGRESS:</span>
+                        <span class="stat-value">50%</span>
+                    </div>
+                    <div class="stat-line">
+                        <span class="stat-label">TIME ELAPSED:</span>
+                        <span class="stat-value" id="timeElapsed">--:--</span>
+                    </div>
+                </div>
+                
+                <div class="success-message">
+                    <p>You have successfully decoded the binary message and gained access.</p>
+                    <p>Your skills are impressive, but this is only the beginning...</p>
+                </div>
+                
+                <div class="encrypted-message">
+                    <p class="typing-effect">> INCOMING TRANSMISSION...</p>
+                    <p class="typing-effect delay-1">> DECRYPTING MESSAGE...</p>
+                    <p class="typing-effect delay-2" style="color: #00ff00; margin-top: 15px;">
+                        "Congratulations on completing Mission 01. You've proven yourself worthy of deeper access. 
+                        The network has many layers, and you've only scratched the surface. 
+                        Stay vigilant, operative. More challenges await..."
+                    </p>
+                </div>
+                
+                <button class="next-mission-btn" onclick="alert('Mission 02 coming soon! Stay tuned for more challenges...')">
+                    PROCEED TO MISSION 02
+                </button>
+                
+                <p class="coming-soon">[ MISSION 02 - COMING SOON ]</p>
+                
+                <div class="footer-info" style="margin-top: 40px;">
+                    <p>SYSTEM STATUS: OPERATIONAL</p>
+                    <p class="ip-address">SESSION ID: <span id="sessionID">XXXX-XXXX-XXXX</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Generate random session ID
+        function generateSessionID() {
+            const chars = '0123456789ABCDEF';
+            let id = '';
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 4; j++) {
+                    id += chars[Math.floor(Math.random() * chars.length)];
+                }
+                if (i < 2) id += '-';
+            }
+            return id;
+        }
+        
+        // Calculate time elapsed (simulated)
+        function updateTimeElapsed() {
+            const minutes = Math.floor(Math.random() * 5) + 1;
+            const seconds = Math.floor(Math.random() * 60);
+            document.getElementById('timeElapsed').textContent = 
+                `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('sessionID').textContent = generateSessionID();
+            updateTimeElapsed();
+        });
+    </script>
+</body>
+</html>

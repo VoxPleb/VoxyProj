@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCESS DENIED - LEVEL 01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    
+    <div class="container">
+        <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">SECURE_ACCESS_TERMINAL_v2.4.1</span>
+        </div>
+        
+        <div class="content">
+            <div class="glitch-text" data-text="MISSION 01">MISSION 01</div>
+            
+            <div class="mission-brief" dir="rtl" style="text-align: right;">
+                <p class="mission-text">التاريخ جزء لا يتجزاء من حياتنا, التاريخ هو الي صنع الحضارات, وبنى الاجيال, ولكل تاريخ قصة ولكل قصة تاريخ.</p>
+                <br>
+                <p class="mission-text">بداية تاريخي وقصتي هي فضولي الأعمى, كنت امشي في احد ايام اليوم الرابع من شهر نيسانو, في عام:</p>
+                <p class="mission-text" style="font-family: 'Courier New', Courier, monospace; color: #00ff00; direction: ltr; text-align: center;">mu bàd gal ... ba-du3 am-mu-ra-pi</p>
+                <p class="mission-text">حيث تثاقل وتكاسل كتبة الأقاليم عن تدوين اسم المدينة المحصنة, وانا اتجول في احد اشهر تل حول تلك المدينة عثرت على اقدم وثيقة جغرافية طينية في العالم, ووجت في قفاها دليلا يرشد المستكشف الى المملكة الجبلية النائية التي احتضنت الخشب العظيم بعد طوفان الارض.</p>
+            </div>
+            
+            <div class="access-panel">
+                <div class="panel-label">
+                    <span class="blink">▶</span> <span id="questionLabel">اسم المدينة المفقودة</span>
+                </div>
+                <input type="text" id="codeInput" class="code-input" placeholder="****" maxlength="10" autocomplete="off">
+                <button id="submitBtn" class="submit-btn">GRANT ACCESS</button>
+                <div id="errorMsg" class="error-msg"></div>
+            </div>
+            
+            <div class="footer-info">
+                <p>UNAUTHORIZED ACCESS IS PROHIBITED</p>
+                <p class="ip-address">YOUR IP: <span id="fakeIP">192.168.1.1</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
