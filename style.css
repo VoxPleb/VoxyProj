@@ -16,6 +16,15 @@ body {
     align-items: center;
 }
 
+/* Disable scroll lock on very small screens */
+@media (max-height: 600px) {
+    body {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
 /* Modern gradient overlay */
 .scanlines {
     position: fixed;
@@ -444,7 +453,8 @@ body {
 /* Responsive Design - Mobile devices (max-width: 768px) */
 @media (max-width: 768px) {
     body {
-        overflow-y: auto;
+        overflow: auto;
+        overflow-x: hidden;
         min-height: 100vh;
         height: auto;
         align-items: flex-start;
@@ -457,6 +467,7 @@ body {
         margin: 20px auto;
         border-radius: 10px;
         max-height: none;
+        overflow: visible;
     }
 
     .terminal-header {
